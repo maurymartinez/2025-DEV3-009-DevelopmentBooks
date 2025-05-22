@@ -21,6 +21,23 @@ class CatalogServiceTest {
     private CatalogService catalogService;
 
     @Test
+    void oneBook_getNoDiscount() {
+        when(bookRepository.getBooksByNames("Clean Code")).thenReturn(
+                List.of(
+                        new Book("Clean Code", "Robert Martin", 2008, 50)
+                )
+        );
+
+        Basket basket = new Basket(List.of(
+                new BasketItem("Clean Code", 1)
+        ));
+
+        BigDecimal price = catalogService.getPrice(basket);
+
+        assertEquals(new BigDecimal("50.00"), price);
+    }
+
+    @Test
     void twoDifferentBooks_get5PercentDiscount() {
         when(bookRepository.getBooksByNames("Clean Code", "The Clean Coder")).thenReturn(
                 List.of(
