@@ -1,6 +1,6 @@
 # 📚 Book Catalog API
 
-A Spring Boot application that calculates discounted prices for baskets of books. It demonstrates clean architecture, RESTful design, and Swagger-based API documentation.
+A Spring Boot application that calculates discounted prices for baskets of books. Rest API, and Swagger-based API documentation.
 
 ---
 
