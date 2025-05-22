@@ -1,27 +1,72 @@
-# Getting Started
+# 📚 Book Catalog API
 
-### Reference Documentation
+A Spring Boot application that calculates discounted prices for baskets of books. It demonstrates clean architecture, RESTful design, and Swagger-based API documentation.
 
-For further reference, please consider the following sections:
+---
 
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/3.4.5/maven-plugin)
-* [Create an OCI image](https://docs.spring.io/spring-boot/3.4.5/maven-plugin/build-image.html)
-* [Spring Web](https://docs.spring.io/spring-boot/3.4.5/reference/web/servlet.html)
+## 🚀 Getting Started
 
-### Guides
+### ✅ Prerequisites
 
-The following guides illustrate how to use some features concretely:
+- Java 21 or higher
+- Maven 3.6 or higher
+- Git (if cloning from GitHub)
 
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/rest/)
+---
 
-### Maven Parent overrides
+### 📦 Clone and Build the Project
 
-Due to Maven's design, elements are inherited from the parent POM to the project POM.
-While most of the inheritance is fine, it also inherits unwanted elements like `<license>` and `<developers>` from the
-parent.
-To prevent this, the project POM contains empty overrides for these elements.
-If you manually switch to a different parent and actually want the inheritance, you need to remove those overrides.
+```
+git clone https://github.com/maurymartinez/2025-DEV3-009-DevelopmentBooks.git
+cd 2025-DEV3-009-DevelopmentBooks
 
+# Build the project
+mvn clean install
+```
+
+### ▶️ Run the Application
+
+```
+# Option 1: Run with Maven
+mvn spring-boot:run
+
+# Option 2: Run the JAR directly
+java -jar target/DevelopmentBooks-1.0.0.jar
+```
+
+### 🧪 API Testing with Swagger UI
+
+Once the application is running, open your browser and navigate to:
+```
+http://localhost:8080/swagger-ui.html
+```
+
+## 🧪 Testing the API with Postman
+
+You can also test the `/api/catalog/price` endpoint using **Postman**:
+
+### ✅ 1. Configure the Request
+
+- **Method:** `POST`
+- **URL:** `http://localhost:8080/api/catalog/price`
+
+### 🧾 2. Set Headers
+
+| Key            | Value              |
+|----------------|--------------------|
+| Content-Type   | application/json   |
+
+### 📦 3. Request Body
+
+In the **Body** tab, choose `raw` and select `JSON` as the format. Paste this:
+
+```json
+{
+  "items": [
+    { "name": "Clean Code", "amount": 1 },
+    { "name": "The Clean Coder", "amount": 1 },
+    { "name": "Clean Architecture", "amount": 1 },
+    { "name": "Test Driven Development by Example", "amount": 1 },
+    { "name": "Working Effectively With Legacy Code", "amount": 1 }
+  ]
+}
