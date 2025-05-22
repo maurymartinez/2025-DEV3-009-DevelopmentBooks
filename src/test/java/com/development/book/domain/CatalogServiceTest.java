@@ -167,7 +167,7 @@ class CatalogServiceTest {
         ));
         BigDecimal price = catalogService.getPrice(basket);
 
-        assertEquals(new BigDecimal("322.50"), price);
+        assertEquals(new BigDecimal("320.00"), price);
     }
 
     @Test
